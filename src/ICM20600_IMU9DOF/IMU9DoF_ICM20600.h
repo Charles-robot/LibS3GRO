@@ -10,11 +10,11 @@ Class to communicate with ICM20600
 #include "ICM20600.h"
 #include "I2Cdev.h" 
 
-class IMU9DOF
+class IMU9DOF20600
 {
   public:
     /** Constructor to initialize the IMU with AD0 state (Needs to be set to true) */
-    IMU9DOF(bool ad0_state);
+    IMU9DOF20600(bool ad0_state);
 
     /** Method to initialize communication between Arduino and IMU9DOF */
     void init();

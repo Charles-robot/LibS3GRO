@@ -1,14 +1,14 @@
-#include "IMU9DOF_ICM20600.h"
+#include "IMU9DoF_ICM20600.h"
 
-IMU9DOF::IMU9DOF(bool ad0_state) : imu_(ad0_state) {
+IMU9DOF20600::IMU9DOF20600(bool ad0_state) : imu_(ad0_state) {
 
 }
 
-void IMU9DOF::init() {
+void IMU9DOF20600::init() {
     ;
 
     // Initialization du IMC20600
-    
+
     imu_.initialize();
     
 
@@ -28,52 +28,57 @@ void IMU9DOF::init() {
 }
 
 
-void IMU9DOF::setPowerMode(icm20600_power_type_t mode) {
+void IMU9DOF20600::setPowerMode(icm20600_power_type_t mode) {
     imu_.setPowerMode(mode);
 }
 // Définition du range d'accel
-void IMU9DOF::setAccScaleRange(acc_scale_type_t range) {
+void IMU9DOF20600::setAccScaleRange(acc_scale_type_t range) {
     imu_.setAccScaleRange(range);
 }
 // Définition du range du gyroscope
-void IMU9DOF::setGyroScaleRange(gyro_scale_type_t range) {
+void IMU9DOF20600::setGyroScaleRange(gyro_scale_type_t range) {
     imu_.setGyroScaleRange(range);
 }
 // fonction pour avoir l'accel en X
-double IMU9DOF::getAccelX() {
+double IMU9DOF20600::getAccelX() {
     int16_t x, y, z;
     imu_.getAcceleration(&x, &y, &z);
     // Assuming full scale range of ±2g, convert raw data to g
     return x / 16384.0; // 16384 is the scaling factor for ±2g range
 }
 // fonction pour avoir l'accel en Y
-double IMU9DOF::getAccelY() {
+double IMU9DOF20600::getAccelY() {
     int16_t x, y, z;
     imu_.getAcceleration(&x, &y, &z);
     return y / 16384.0;
 }
 // fonction pour avoir l'accel en Z
-double IMU9DOF::getAccelZ() {
+double IMU9DOF20600::getAccelZ() {
     int16_t x, y, z;
     imu_.getAcceleration(&x, &y, &z);
     return z / 16384.0;
 }
 // fonction pour avoir le gyro en X
-double IMU9DOF::getGyroX() {
+double IMU9DOF20600::getGyroX() {
     int16_t x, y, z;
     imu_.getGyroscope(&x, &y, &z);
     // Assuming full scale range of ±250 degrees/s, convert raw data to degrees/s
     return x / 131.0; // 131 is the scaling factor for ±250 degrees/s range
 }
 // fonction pour avoir le gyro en Y
-double IMU9DOF::getGyroY() {
+double IMU9DOF20600::getGyroY() {
     int16_t x, y, z;
     imu_.getGyroscope(&x, &y, &z);
     return y / 131.0;
 }
 // fonction pour avoir le gyro en Z
-double IMU9DOF::getGyroZ() {
+double IMU9DOF20600::getGyroZ() {
     int16_t x, y, z;
     imu_.getGyroscope(&x, &y, &z);
     return z / 131.0;
+}
+
+// TODO: Implémenter cette fonction
+double IMU9DOF20600::getTemp() {
+    return -1.;
 }
