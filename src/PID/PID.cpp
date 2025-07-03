@@ -22,7 +22,7 @@ void PID::enable(){
     // if function pointers are initiated
     if(measurementFunc_!=nullptr && commandFunc_!=nullptr){
         enable_ = true;
-        measureTime_ = millis() + dtMs_;
+        //measureTime_ = millis() + dtMs_;
         atGoal_ = false;
         eIntegral_ = 0;
         ePrevious = 0;
