@@ -24,8 +24,8 @@ void PID::enable(){
         enable_ = true;
         //measureTime_ = millis() + dtMs_;
         atGoal_ = false;
-        eIntegral_ = 0;
-        ePrevious = 0;
+        //eIntegral_ = 0;
+        //ePrevious = 0;
     }
     
     
