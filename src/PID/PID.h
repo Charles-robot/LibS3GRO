@@ -37,6 +37,8 @@ class PID
     /** Method to disable the object
     */
     void disable();
+
+    void reset();
     
     /** Method to check if the PID needs to be run
     @param goal
