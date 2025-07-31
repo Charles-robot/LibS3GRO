@@ -35,6 +35,12 @@ void PID::disable(){
     enable_ = false;
 }
 
+void PID::reset()
+{
+    eIntegral_ = 0;
+    ePrevious = 0;
+}
+
 
 void PID::run(){
     // if enabled and time to run iteration
